@@ -7,6 +7,8 @@ const errorDisplay = document.querySelector(".errorDisplay")
 const removeButton = document.querySelector("#removeButton")
 const updateButton = document.querySelector("#updateButton")
 
+//création de balise li pour de nouvelles tâches via un form + 2 bouttons modifier et supprimer 
+
 function addTask() {
     defaultItem.style.display = "none"
     let taskItem = document.createElement("li")
@@ -39,7 +41,7 @@ function addTask() {
     buttonArea.appendChild(removeButton)
     buttonArea.appendChild(updateButton)
 
-
+// fonction de mise à jour des tâches existantes
     function updateTask(){
         let updatefield = document.createElement("input")
         updatefield.type = "text"
@@ -58,6 +60,7 @@ function addTask() {
 
         saveButton.addEventListener("click", function(){
             
+        // gestion de champ vide
         if (updatefield.value.trim() === ""){
             errorDisplay.style.opacity ="1"
             return
@@ -74,6 +77,7 @@ function addTask() {
         })
         }
 
+        //suppression de l'élément et affichage de l'élément par défaut si la to-do list est vide
     removeButton.addEventListener("click", function(){
         taskItem.remove()
         if(taskListContainer.children.length === 1){
@@ -88,7 +92,7 @@ function addTask() {
 }
 
 createTaskButton.addEventListener("click", function(){
-
+    // gestion de champ vide
     if (newTask.value.trim() === ""){
         errorDisplay.style.opacity ="1"
         return
